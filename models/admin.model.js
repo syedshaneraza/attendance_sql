@@ -6,7 +6,7 @@ const db = require('../helpers/db');
 const Admin = db.define('admin', {
     admin:{
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
     password:{
       type: Sequelize.STRING,
