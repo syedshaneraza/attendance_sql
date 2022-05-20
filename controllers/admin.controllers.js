@@ -3,7 +3,6 @@ const adminServices = require("../services/admin.ser");
 const { adminForm } = require("../schema/admin.schema");
 const bcrypt = require("bcryptjs");
 
-
 module.exports = {
   login: async (req, res) => {
     console.log("In Login");
@@ -50,21 +49,4 @@ module.exports = {
       });
     }
   },
-  create: async (req, res) => {
-    console.log('In Create');
-    const admin = new Admin(req.body);
-    try {
-      await adminServices.registerAdmin(admin);
-      res.status(201).json({
-        success: admin,
-        message: "Admin is successfully created.",
-      });
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        message: error.message,
-      });
-    }
-  }
-  
 };
